@@ -13,10 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Student;
 
-/**
- *
- * @author Admin
- */
+
 public class StudentDAO extends DBContext {
 
     public ArrayList<Student> getStudentsFromClass(int classID) {
