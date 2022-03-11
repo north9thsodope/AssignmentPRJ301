@@ -5,10 +5,6 @@
  */
 package model;
 
-/**
- *
- * @author Admin
- */
 public class Slot {
     private int SlotID;
     private String SlotName;
