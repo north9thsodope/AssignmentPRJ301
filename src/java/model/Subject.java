@@ -5,10 +5,6 @@
  */
 package model;
 
-/**
- *
- * @author Admin
- */
 public class Subject {
     private int SubjectID;
     private String SubjectName;
