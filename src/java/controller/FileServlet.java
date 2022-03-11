@@ -13,29 +13,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * The File servlet for serving from absolute path.
- *
- * @author BalusC
- * @link https://balusc.omnifaces.org/2007/07/fileservlet.html
- */
+
 public class FileServlet extends HttpServlet {
 
-    // Constants ----------------------------------------------------------------------------------
+    // Constants 
     private static final int DEFAULT_BUFFER_SIZE = 10240; // 10KB.
 
-    // Properties ---------------------------------------------------------------------------------
+    // Properties
     private String filePath;
 
-    // Actions ------------------------------------------------------------------------------------
+    // Actions 
     public void init() throws ServletException {
 
         // Define base path somehow. You can define it as init-param of the servlet.
         this.filePath = "/files";
-
-        // In a Windows environment with the Applicationserver running on the
-        // c: volume, the above path is exactly the same as "c:\files".
-        // In UNIX, it is just straightforward "/files".
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,16 +34,11 @@ public class FileServlet extends HttpServlet {
         String requestedFile = request.getParameter("path");
 
         System.out.println(requestedFile);
-
-        // Decode the file name (might contain spaces and on) and prepare file object.
         File file = new File(requestedFile);
 
         // Get content type by filename.
         String contentType = getServletContext().getMimeType(file.getName());
 
-        // If content type is unknown, then set the default value.
-        // For all content types, see: http://www.w3schools.com/media/media_mimeref.asp
-        // To add new content types, add new mime-mapping entry in web.xml.
         if (contentType == null) {
             contentType = "application/octet-stream";
         }
