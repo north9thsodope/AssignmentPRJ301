@@ -21,10 +21,7 @@ import model.Attendence;
 import model.Schedule;
 import model.Student;
 
-/**
- *
- * @author Admin
- */
+
 @WebServlet(name = "AttendController", urlPatterns = {"/list/attendence"})
 public class AttendController extends HttpServlet {
 
@@ -64,6 +61,7 @@ public class AttendController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void doGet_Check(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
         String scheduleID = request.getParameter("schedule");
         ScheduleDAO scheduleDb = new ScheduleDAO();
         Schedule schedule = scheduleDb.getScheduleByID(Integer.parseInt(scheduleID));
@@ -76,6 +74,7 @@ public class AttendController extends HttpServlet {
     }
 
     protected void doGet_Edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
         String schedule = request.getParameter("schedule");
         int scheduleID = Integer.parseInt(schedule);
         ScheduleDAO scheduleDb = new ScheduleDAO();
@@ -114,6 +113,7 @@ public class AttendController extends HttpServlet {
      */
     protected void doPost_Insert(HttpServletRequest request, HttpServletResponse response, String scheduleID)
             throws ServletException, IOException {
+        
         String[] studentCode = request.getParameterValues("student");
         Schedule schedule = new Schedule();
         schedule.setScheduleID(Integer.parseInt(scheduleID));
@@ -139,6 +139,7 @@ public class AttendController extends HttpServlet {
 
     protected void doPost_Update(HttpServletRequest request, HttpServletResponse response, String scheduleID)
             throws ServletException, IOException {
+        
         String[] studentCode = request.getParameterValues("student");
         Schedule schedule = new Schedule();
         schedule.setScheduleID(Integer.parseInt(scheduleID));
@@ -165,6 +166,7 @@ public class AttendController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String param = request.getParameter("param");
         String[] splitParam = param.split("&");
         String scheduleID = splitParam[0].substring(splitParam[0].indexOf("=") + 1);
@@ -180,11 +182,7 @@ public class AttendController extends HttpServlet {
 
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
+   
     @Override
     public String getServletInfo() {
         return "Short description";
