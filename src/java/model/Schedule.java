@@ -7,10 +7,6 @@ package model;
 
 import java.sql.Date;
 
-/**
- *
- * @author Admin
- */
 public class Schedule {
     private int ScheduleID;
     private Subject subject;
