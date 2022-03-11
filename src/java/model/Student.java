@@ -5,10 +5,6 @@
  */
 package model;
 
-/**
- *
- * @author Admin
- */
 public class Student {
     private String StudentCode;
     private String FullName;
