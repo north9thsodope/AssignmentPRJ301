@@ -5,10 +5,7 @@
  */
 package model;
 
-/**
- *
- * @author Admin
- */
+
 public class Attendence {
     private int AttendenceID;
     private Schedule schedule;
