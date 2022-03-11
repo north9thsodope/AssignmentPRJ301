@@ -15,10 +15,7 @@ import model.Attendence;
 import model.Schedule;
 import model.Student;
 
-/**
- *
- * @author Admin
- */
+
 public class AttendenceDAO extends DBContext {
 
     public void insertAttendence(Attendence x) {
