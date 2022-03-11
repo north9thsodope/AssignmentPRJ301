@@ -16,10 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Schedule;
 
-/**
- *
- * @author Admin
- */
+
 public class HomeController extends HttpServlet {
 
     /**
@@ -73,6 +70,7 @@ public class HomeController extends HttpServlet {
      */
     protected void doPost_ChoosenDate(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String choosenDate = request.getParameter("choosenDate");
         ScheduleDAO db = new ScheduleDAO();
         ArrayList<Schedule> listSchedule = db.getScheduleByChoosenDate(choosenDate);
@@ -83,6 +81,7 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         if(request.getParameter("choosenDate") != null){
             doPost_ChoosenDate(request, response);
             return;
