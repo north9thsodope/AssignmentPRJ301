@@ -17,10 +17,7 @@ import model.Schedule;
 import model.Slot;
 import model.Subject;
 
-/**
- *
- * @author Admin
- */
+
 public class ScheduleDAO extends DBContext {
 
     public ArrayList<Date> getDateIn48Hours() {
@@ -82,6 +79,7 @@ public class ScheduleDAO extends DBContext {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, scheduleID);
             ResultSet rs = statement.executeQuery();
+            
             while (rs.next()) {
                 Schedule x = new Schedule();
                 x.setScheduleID(rs.getInt("ID"));
