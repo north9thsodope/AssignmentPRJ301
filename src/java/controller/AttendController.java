@@ -113,6 +113,17 @@ public class AttendController extends HttpServlet {
      */
     protected void doPost_Insert(HttpServletRequest request, HttpServletResponse response, String scheduleID)
             throws ServletException, IOException {
+        /*
+        String scheduleID = request.getParameter("schedule");
+        ScheduleDAO scheduleDb = new ScheduleDAO();
+        Schedule schedule = scheduleDb.getScheduleByID(Integer.parseInt(scheduleID));
+        String information = schedule.getClassName().getClassroomName() + " - " + schedule.getSlot().getSlotName() + " - " + schedule.getSubject().getSubjectName() + " - " + schedule.getDate();
+        request.setAttribute("information", information);
+        StudentDAO studentDb = new StudentDAO();
+        ArrayList<Student> listStudent = studentDb.getStudentsFromClass(schedule.getClassName().getClassroomID());
+        request.setAttribute("listStudent", listStudent);
+        request.getRequestDispatcher("../List.jsp").forward(request, response);
+        */
         
         String[] studentCode = request.getParameterValues("student");
         Schedule schedule = new Schedule();
