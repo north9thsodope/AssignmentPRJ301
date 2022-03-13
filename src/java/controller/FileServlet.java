@@ -65,13 +65,11 @@ public class FileServlet extends HttpServlet {
         }
     }
 
-    // Helpers (can be refactored to public utility class) ----------------------------------------
     private static void close(Closeable resource) {
         if (resource != null) {
             try {
                 resource.close();
             } catch (IOException e) {
-                // Do your thing with the exception. Print it, log it or mail it.
                 e.printStackTrace();
             }
         }
