@@ -24,8 +24,4 @@ public class DBContext {
         }
         
     }
-    public static void main(String[] args) {
-        DBContext db = new  DBContext();
-        System.out.println(db);
-    }
 }
