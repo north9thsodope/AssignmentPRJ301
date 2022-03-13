@@ -24,8 +24,6 @@ public class FileServlet extends HttpServlet {
 
     // Actions 
     public void init() throws ServletException {
-
-        // Define base path somehow. You can define it as init-param of the servlet.
         this.filePath = "/files";
     }
 
@@ -43,30 +41,25 @@ public class FileServlet extends HttpServlet {
             contentType = "application/octet-stream";
         }
 
-        // Init servlet response.
         response.reset();
         response.setBufferSize(DEFAULT_BUFFER_SIZE);
         response.setContentType(contentType);
         response.setHeader("Content-Length", String.valueOf(file.length()));
         response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getName() + "\"");
 
-        // Prepare streams.
         BufferedInputStream input = null;
         BufferedOutputStream output = null;
 
         try {
-            // Open streams.
             input = new BufferedInputStream(new FileInputStream(file), DEFAULT_BUFFER_SIZE);
             output = new BufferedOutputStream(response.getOutputStream(), DEFAULT_BUFFER_SIZE);
 
-            // Write file contents to response.
             byte[] buffer = new byte[DEFAULT_BUFFER_SIZE];
             int length;
             while ((length = input.read(buffer)) > 0) {
                 output.write(buffer, 0, length);
             }
         } finally {
-            // Gently close streams.
             close(output);
             close(input);
         }
